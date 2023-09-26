@@ -1,256 +1,61 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>教育产学合作</title>
+    <title>我的主页</title>
     <style>
         body {
-            background-color: #f8f8f8;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
         }
 
-        .nav-container {
-            background-color: #333;
+        h1 {
             text-align: center;
-            padding: 10px;
+            color: #333;
         }
-
-        ul {
-            display: inline-block;
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .link-list {
+            list-style: none;
             padding: 0;
         }
-
-        ul li {
-            display: inline-block;
-        }
-
-        ul li a {
-            padding: 10px 20px;
-            color: #fff;
-            background-color: #555;
-            border-radius: 20px;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        ul li a:hover {
-            background-color: #777;
-        }
-
-        .section {
-            text-align: center;
-            width: 400px;
-            height: auto;
-            max-height: calc(100vh - 170px);
-            overflow: auto;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        @media screen and (max-width: 480px) {
-            .section {
-                width: 100%;
-                max-height: 200px;
-                overflow: auto;
-            }
-        }
-
-        .section h2 {
-            margin-top: 0;
-            font-size: 24px;
-            color: #333;
-        }
-
-        .section ol,
-        .section ul {
-            padding-left: 20px;
-            list-style-type: decimal-leading-zero;
-        }
-
-        .section li {
+        
+        .link-list li {
             margin-bottom: 10px;
-            line-height: 1.6;
         }
-        .sectiona {
-            margin-top: 40px;
-            text-align: center;
-        }
-        .section-content {
-            text-align: justify;
-            line-height: 1.6;
-            margin-top: 20px;
-        }
-        .section-heading {
-            font-size: 24px;
+        
+        .link-list li a {
+            display: block;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            text-decoration: none;
             color: #333;
-            margin-top: 0;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        
+        .link-list li a:hover {
+            background-color: #f0f0f0;
         }
     </style>
 </head>
 <body>
-<div class="nav-container">
-    <nav>
-        <ul>
-            <li><a href="#home" onclick="showContent('home')">首页</a></li>
-            <li><a href="#network" onclick="showContent('network')">网络</a></li>
-            <li><a href="#education" onclick="showContent('education')">教育</a></li>
-            <li><a href="#software" onclick="showContent('software')">软件</a></li>
-            <li><a href="#intelligence" onclick="showContent('intelligence')">智能</a></li>
-            <li><a href="#security" onclick="showContent('security')">安全</a></li>
+    <div class="container">
+        <h1>欢迎访问我的主页</h1>
+        
+        <ul class="link-list">
+            <li><a href="20213627-20230905.html">第一次作业</a></li>
+            <li><a href="20213627-20230912.html">第二次作业</a></li>
+            <li><a href="20213627-20230919.html">第三次作业</a></li>
+            <li><a href="one.html">示例链接</a></li>
+            <li><a href="https://www.example5.com">待添加...</a></li>
         </ul>
-    </nav>
-</div>
-<div id="content">
-    <div id="home"  class="section">
-        <h2>首页</h2>
-<h3>关于北京字节跳动科技有限公司简介</h3>
-            <section class="sectiona">
-                <h2 class="section-heading">公司介绍</h2>
-                <p class="section-content">北京字节跳动科技有限公司成立于2012年3月，是最早将人工智能应用于移动互联网场景的科技企业之一。公司以建设“全球创作与交流平台”为愿景。字节跳动的全球化布局始于2015年 ，“技术出海”是字节跳动全球化发展的核心战略 。 字节跳动人工智能实验室成立于2016年 ，旨在针对人工智能相关领域的长期性和开放性问题进行探索，帮助公司实现对未来发展的构想 。其独立研发的“今日头条”客户端，通过海量信息采集、深度数据挖掘和用户行为分析，为用户智能推荐个性化信息，从而开创了一种全新的新闻阅读模式。</p>
-            </section>
-
-            <section class="sectiona">
-                <h2 class="section-heading">旗下品牌</h2>
-                <p class="section-content">抖音（tik tok）是由今日头条推出的一款短视频分享app，于2016年9月上线，是一个专注于年轻人音乐短视频创作分享的社区平台。
-
-                    今日头条是北京字节跳动科技有限公司开发的一款基于数据挖掘的推荐引擎产品，为用户推荐信息，提供连接人与信息的服务的产品。由张一鸣于2012年3月创建，2012年8月发布第一个版本。
-
-                    西瓜视频是字节跳动推出的个性化推荐短视频平台，其前身为头条视频，于2017年6月8日正式升级为西瓜视频。</p>
-
-            </section>
-
-            <section class="sectiona">
-                <h2 class="section-heading">国际化</h2>
-                <p class="section-content">字节跳动的全球化扩张由来已久。这家成立了仅八年的公司在很短的时间里已经在30个国家、180多个城市有办公室，并拥有超过6万名员工。截至2019年底，字节跳动旗下产品全球月活跃用户数超过15亿，业务覆盖150个国家和地区、75个语种。在海外，tik tok也已经成为了一种潮流，成为新一代年轻人时尚文化的代名词。</p>
-
-            </section>
-
-            <section class="sectiona">
-                <h2 class="section-heading">更多信息</h2>
-                <p class="section-content">请点击公司主页了解更多相关信息<a href="https://www.bytedance.com/" target="_blank">北京字节跳动科技有限公司的主页</a></p>
-                <a href="one.html" target="_blank">我的主页</a>
-
-            </section>
     </div>
-    <div id="network" class="section" style="display: none">
-        <h2>网络</h2>
-        <ol>
-            <li>安徽众合聚惠网络科技有限公司</li>
-            <li>佰科金鼎（山东）网络科技有限公司</li>
-            <li>北京字节跳动网络技术有限公司</li>
-            <li>朝鸿（山东）网络技术有限公司</li>
-            <li>广州腾科网络技术有限公司</li>
-            <li>河北赤木网络科技有限公司</li>
-            <li>河北见新网络科技有限公司</li>
-            <li>湖南通远网络股份有限公司</li>
-            <li>慕乐网络科技（大连）有限公司</li>
-            <li>山东鲁优网络科技有限公司</li>
-            <li>山东为来网络科技有限公司</li>
-            <li>陕西科米网络科技有限公司</li>
-            <li>上海逸景网络科技有限公司</li>
-            <li>搜伦（上海）网络科技有限公司</li>
-            <li>信亦宏达网络存储技术（北京）有限公司</li>
-        </ol>
-    </div>
-    <div id="software" style="display: none" class="section">
-        <h2>软件</h2>
-        <ol start="1" type="1">
-            <li>北京东方仿真软件技术有限公司</li>
-            <li>北京欧倍尔软件技术开发有限公司</li>
-            <li>北京天演融智软件有限公司</li>
-            <li>北京小米移动软件有限公司</li>
-            <li>北京盈建科软件股份有限公司</li>
-            <li>成都泰盟软件有限公司</li>
-            <li>广州凯园软件科技有限公司</li>
-            <li>江苏润和软件股份有限公司</li>
-            <li>山东欧倍尔软件科技有限责任公司</li>
-            <li>上海鲁班软件股份有限公司</li>
-        </ol>
-    </div>
-    <div id="education" style="display: none" class="section">
-        <h2>教育</h2>
-        <ol start="1" type="1">
-            <li>安徽传英教育科技有限公司</li>
-            <li>北京安博大成教育科技有限责任公司</li>
-            <li>北京贝斯林泰岳教育科技有限公司</li>
-            <li>北京布局未来教育科技有限公司</li>
-            <li>北京位来教育科技有限公司</li>
-            <li>北京学睿思教育咨询有限公司</li>
-            <li>北京翼鸥教育科技有限公司</li>
-            <li>北京中传赛奥教育科技有限公司</li>
-            <li>沈阳启煋教育咨询有限公司</li>
-            <li>沈阳尚大教育咨询有限公司</li>
-            <li>成都维物汇谱教育管理有限公司</li>
-            <li>东软教育科技集团有限公司</li>
-            <li>高途教育科技集团有限公司</li>
-            <li>广州百捷教育科技发展有限公司</li>
-            <li>哈尔滨维特塞尔教育科技有限公司</li>
-            <li>杭州九逸教育科技有限公司</li>
-            <li>杭州沃土教育科技股份有限公司</li>
-            <li>河南亮杰教育科技集团有限公司</li>
-            <li>河南优学乐创教育科技有限公司</li>
-            <li>华夏星博教育科技（北京）有限责任公司</li>
-            <li>济南图忆教育科技有限公司</li>
-            <li>江苏億来教育科技有限公司</li>
-            <li>南京乾学教育科技有限公司</li>
-            <li>宁波阶梯教育科技有限公司</li>
-            <li>青岛英谷教育科技股份有限公司</li>
-            <li>山东晟诺致诚教育科技发展集团有限公司</li>
-            <li>山东极客教育咨询有限公司</li>
-            <li>山东省国高教育研究有限公司</li>
-            <li>山东悦知教育科技有限公司</li>
-            <li>陕西研学旅行教育咨询服务有限公司</li>
-            <li>上海佑莘教育科技有限公司</li>
-            <li>深圳国匠云职业教育科技有限公司</li>
-            <li>世纪文都教育科技集团股份有限公司</li>
-            <li>四川旅投教育投资有限责任公司</li>
-            <li>四川众行智合教育科技有限公司</li>
-            <li>武汉光驰教育科技股份有限公司</li>
-            <li>悦读天下（北京）国际教育科技有限公司</li>
-            <li>紫光教育科技有限公司</li>
-        </ol>
-    </div>
-    <div id="security" style="display: none" class="section">
-        <h2>安全</h2>
-        <ol start="1" type="1">
-            <li>广东达元绿洲食品安全科技股份有限公司</li>
-        </ol>
-    </div>
-    <div id="intelligence" style="display: none" class="section">
-        <h2>智能</h2>
-        <ol start="1" type="1">
-            <li>寒御（秦皇岛）智能科技有限公司</li>
-            <li>杭州德迪智能科技有限公司</li>
-            <li>江苏慧明智能科技有限公司</li>
-            <li>江苏优埃唯智能科技有限公司</li>
-            <li>南京韦琪智能科技有限公司</li>
-            <li>山东行远智能网联科技有限公司</li>
-            <li>上海凌俐智能科技有限公司</li>
-            <li>上海犀浦智能系统有限公司</li>
-            <li>天津登信智能科技有限公司</li>
-            <li>天津玖玲珑智能科技有限公司</li>
-            <li>笑尊（天津）智能科技有限公司</li>
-            <li>郑州冬码智能科技有限公司</li>
-            <li>中汽院智能网联科技有限公司</li>
-        </ol>
-    </div>
-</div>
-<script>
-    function showContent(contentId) {
-        var contents = document.querySelectorAll('.section');
-        for (var i = 0; i < contents.length; i++) {
-            contents[i].style.display = 'none';
-        }
-
-        var content = document.getElementById(contentId);
-        if (content) {
-            content.style.display = 'block';
-        }
-    }
-</script>
 </body>
 </html>

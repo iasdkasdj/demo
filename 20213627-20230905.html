@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+  <title>Linux基础命令和Git环境配置</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin: 20px;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Linux基础命令和Git环境配置</h1>
+
+  <h2>1. Linux基础命令</h2>
+  <pre>
+    <code>
+ls命令
+语法 ：ls[选项][目录或者文件]
+功能：对于目录，该命令列出该目录的子目录和文件。对于文件列出文件名及其它信息
+常用选项：-a 列出目录显得所有文件，包括以"."开头的隐藏文件	-l：列出文件的详细信息
+pwd命令
+语法：pwd
+功能：显示用户当前所在目录
+cd指令
+语法：cd 目录名
+功能：改变工作目录。将当前工作目录改变到只能指定工作目录下
+cd ..  返回上一目录
+cd -   进入最近访问的目录
+cd ~   进入主工作目录
+stat指令 
+语法：stat 目录或者文件
+功能：查看文件或者目录属性
+touch [选项] 文件
+功能：touch命令可以更改文档或者目录的日期文件，包括存取和更改时间，或者是创建一个文件。
+mkdir指令
+语法：mkdir[选项]目录名
+功能：在当前目录下创建一个目录
+ rm指令
+语法：rm[选项]文件名或者目录
+功能：删除文件或者目录
+cp指令
+语法：cp[选项]源文件或者目录 目标文件或者目录
+功能：后面可以加路径，如果最后是目录，并且在该目录下不存在同名文件，将该文件拷贝到该目录下。同一目录中不能存在同名文件。
+类似的指令还有很多比如mv指令 echo指令等因篇幅太长不多提及。都有了一些初步的认识以及应用。并且熟练运用文件的基础操作
+
+
+类似的指令还有很多，因篇幅太长不一一提及。
+    </code>
+  </pre>
+
+  <h2>2. 软链接和硬链接</h2>
+  <pre>
+    <code>
+2.对软链接，硬链接初步认识
+软连接：它的功能是为某一个文件在另一个位置建立一个同步的链接。简单来说，就是window里面的快捷方式。
+语法：ln -s target source
+ln -s:表示创建一个软链接；
+target：表示目标文件（夹)，即源文件
+source:表示当前目录的软链接名，即被创建出来的软链接名称以及放置在何处。
+硬链接：硬链接通过指向索引节点来进行连接（inode index）。在Linux中，多个文件名指向同一个索引节点是存在的。硬链接的作用是允许一个文件拥有多个有效路径名
+这样用户就可以建立硬链接到重要文件，以防止“误删”的功能。
+语法：ln  target source	
+
+
+3.了解了git环境配置以及建立仓库
+git config --global user.name "name"
+git config --global user.email "email"		/设置用户/
+
+git init						/初始化本地仓库/
+
+
+
+4.gitbash指令使用情况（即history）
+
+$ history
+    1  cd c/
+    2  cd c/
+    3  cd cls
+    4  cd c:
+    5  cd c/
+    6  history
+    7  s
+    8  mkdir jg
+    9  ls
+   10  cd d/
+   11  cd d:
+   12  cd dls
+   13  cd /c
+   14  history
+   15  history
+   16  cd /d
+   17  mkdir personal
+   18  ls
+   19  touch jg
+   20  ls
+   21  touch jg.txt
+   22  ls
+   23  cd jg.txt
+   24  rm jg
+   25  ls
+   26  rm jg.txt
+   27  ls
+   28  mkdir jg
+   29  ls
+   30  rm jg
+   31  rm -r jg
+   32  ls
+   33  mv personal
+   34  mv--help
+   35  'mv --help'
+   36  mv --help
+   37  mv personal person
+   38  ls
+   39  ls -l
+   40  ls -a
+   41  cd person
+   42  touch 1.txt
+   43  ls -a
+   44  pwd
+   45  find -name "*.txt"
+   46  find -name "*1*"
+   47  find -name "1*"
+   48  cd ~
+   49  ls
+   50  cd
+   51  cd.
+   52  cd.
+   53  cd d
+   54  cd /d
+   55  mkdir personall
+   56  ls
+   57  mv 1.txt personall
+   58  cd person
+   59  ls
+   60  mv 1.txt personall
+   61  ls
+   62  cd ..
+   63  ls
+   64  mv person personall
+   65  ls
+   66  touch 2.txt
+   67  mv 2.txt personall
+   68  ls
+   69  echo "我真的不爱学习">>1.txt
+   70  cat 1.txt
+   71  vim 1.txt
+   72  cat 1.txt
+   73  echo "这是一条覆盖语句">1.txt
+   74  cat 1.txt
+   75  vim
+   76  ls
+   77  vim 1.html
+   78  history
+   79  cp /c/picture . -R
+   80  ls
+   81  cd picture
+   82  ll
+   83  ls -a
+   84  cd ,,
+   85  cd ..
+   86  cp -r /c/picture /d/personall
+   87  ls
+   88  cd personall
+   89  ll
+   90  ls -a
+   91  less 1.html
+   92  cd
+   93  cd /d
+   94  less 1.html
+   95  cd
+   96  ls
+   97  cd /d
+   98  ls
+   99  history
+  100  clear
+  101  cd personall
+  102  rm -r picture
+  103  ls
+  104  cd ..
+  105  mv picture personall
+  106  cd personall
+  107  ls -a
+  108  cd ..
+  109  mv personall personal
+  110  ls
+  111  mv 1.txt personal
+  112  touch 3.txt
+  113  ls
+  114  mv 1.html 3.txt personal
+  115  ls
+  116  cd personal
+  117  ls-a
+  118  ls -a
+  119  mv 1.html /d
+  120  cd ..
+  121  ls
+  122  find /c/用户 name "*1*"
+  123  cd /c
+  124  find /d/personal -name "*.txt"
+  125  cd /d
+  126  find /c/用户 -name "*1*"
+  127  find /c/Windows -name "*1*"
+  128  clear
+  129  ls
+  130  ln -s 1.html personal
+  131  touch 2.html
+  132  ln -s 1.html 2.html
+  133  ln -s /d/1.html 2.html
+  134  cd /desktop
+  135  cd Desktop
+  136  cd /Desktop
+  137  cd ~/Desktop
+  138  ls
+  139  touch op1
+  140  ln -s /d/1.html op1
+  141  pwd
+  142  ln -s /c/Users/21050/Desktop/op1 1.html
+  143  ln -s /c/Users/21050/Desktop/op1 /d/1.html
+  144  rm 1.html
+  145  rm opl
+  146  rm op1
+  147  cd /d
+  148  ll
+  149  ln 1.html 2.html
+  150  ln 1.html 3.html
+  151  ll
+  152  echo "我有两个硬链接">>3.html
+  153  cat 3.html
+  154  cat 1.html
+  155  echo "这是我的第二次测试">>1.html
+  156  cat 3.html
+  157  cat 1.html
+  158  ln -s 1.html 5
+  159  vim 5
+  160  cat 5
+  161  cat 1.html
+  162  ll
+  163  rm 5
+  164  ll
+  165  ln -s /d/1.html ~/Desktop/2
+  166  acho "这是第一次软连接的测试">>2
+  167  echo "这是一次软连接的测试">>2
+  168  cat 1.html
+  169  cat 2
+  170  rm 2
+  171  ls
+  172  cd ~/Desktop
+  173  rm 2
+  174  cd d
+  175  ls -l
+  176  cd /d
+  177  ln -s /d/1.html 3
+  178  echo "aa">>3
+  179  cat 1.html
+  180  rm 3
+  181  ln -s /d/1.html 4.html
+  182  echo "www">>4.html
+  183  cat 1
+  184  cat 1.html
+  185  echo "111">>1.html
+  186  cat 1.html
+  187  cat 2.html
+  188  cat 3.html
+  189  cat 4.html
+  190  ls-l
+  191  ll
+  192  ls -;
+  193  ls -l
+  194  ls -l/user/bin|grep'^|'
+  195  chmod u+wflile
+  196  sudo su_
+  197  sudo su-
+  198  sudo su -
+  199  rm 4.html
+  200  rm 2.html
+  201  ln -s /d/1.html /c/2.html
+  202  chmod 755 filename
+  203  exit
+  204  history
+  205  cd /d
+  206  ln -s /d/1.html /c/2.html
+  207  vim 2.html
+  208  cat 1.html
+  209  cat 2.html
+  210  touch 1
+  211  ln -s /d/1 /d/2
+  212  vim 2
+  213  cat 1
+  214  cat 2
+  215  ll
+  216  ls -l symlink
+  217  ls -l symbolic link
+  218  ls -l /user/bin | grep '^l'
+  219  df -h
+  220  lsblk -f
+  221  df
+  222  df -f
+  223  df -th
+  224  df -Th
+  225  mkdir rubbish
+  226  mv 1 2 1.html 2.html 3.html rubbish
+  227  rm -r rubbish
+  228  mv 1.txt 2.txt 3.txt person
+  229  mv 1.txt 2.txt 3.txt /d/personal/person
+  230  mv 1.txt 2.txt 3.txt  /d/personal/person
+  231  rm -rf personal
+  232  mkdir personal
+  233  cp /c/picture . -R
+  234  mv picture personal
+  235  history
+  236  touch 1
+  237  rm -i 1
+  238  history
+  239  cd /dcd /d
+  240  cd /d
+  241  ls
+  242  exit
+  243  cd
+  244  git config --globa user.name "iok"
+  245  git config --globa user.eamil "2105058384@qq.com"
+  246  git init
+  247  ~/.ssh
+  248  ssh-keygen -t rsa -C "2105058384@qq.com"
+  249  ~/.ssh
+  250  ssh -T git@github.com
+  251  git branch
+  252  git branch version
+  253  git add.
+  254  git add
+  255  git add .
+  256  git branch ij
+  257  git commit -m "this is a index"
+  258  git config --global user.email "2105058384@qq.com"
+  259  git config --global user.name "iok"
+  260  git branch web
+  261  git commit -m "this is a index"
+  262  git reset --soft HEAD^
+  263  git reset --hard HEAD^
+  264  bash git branch
+  265  git branch
+  266  git branch ij
+  267  cd /d
+  268  history
+  269  exit
+  270  git config -lgit config -l
+  271  git config -l
+  272   git config --global --list
+  273  git config --globaluser.name "zzx"
+  274  git config user.name
+  275  git config user.email
+  276  git config --list
+  277  git config --global--unset user.eamil
+  278  git config --local(global) --unset user.eamil
+  279  git config --local --unset user.eamil
+  280  git config--local--list
+  281  git config --global --list
+  282  git config --global --unset user.eamil
+  283  git config --global --list
+  284  cd /home/personal
+  285  cd /d
+  286  ls
+  287  cd -
+  288  cd-
+  289  cd -
+  290  cd /c
+  291  cd -
+  292  cd ./personal
+  293  tree personal
+  294  tree /d/personal
+  295  tree
+  296  tree /d/personal/
+  297  stat personal
+  298  stat
+  299  stat /d/personal
+  300  exit
+  301  cd /d/personal
+  302  touch personal
+  303  ls
+  304  touch personal
+  305  ls
+  306  rm personal
+  307  ls
+  308  history
