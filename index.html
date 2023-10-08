@@ -63,6 +63,7 @@
     </style>
 </head>
 <body>
+<div id="current-time"></div>
 <div class="container">
     <h1>欢迎访问我的主页</h1>
 
@@ -78,6 +79,39 @@
         <h3>个人简介</h3>
         <p>这是一个平平无奇的主页</p>
     </div>
+
+    <script>
+        // 获取当前时间
+        function getCurrentTime() {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var date = now.getDate();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            // 格式化时间
+            if (month < 10) month = '0' + month;
+            if (date < 10) date = '0' + date;
+            if (hours < 10) hours = '0' + hours;
+            if (minutes < 10) minutes = '0' + minutes;
+            if (seconds < 10) seconds = '0' + seconds;
+
+            var currentTime = year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds;
+
+            return currentTime;
+        }
+
+        // 更新时间显示
+        function updateTime() {
+            var timeElement = document.getElementById('current-time');
+            timeElement.innerHTML = getCurrentTime();
+        }
+
+        // 每秒更新一次时间
+        setInterval(updateTime, 1000);
+    </script>
 </div>
 </body>
 </html>
