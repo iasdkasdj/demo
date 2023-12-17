@@ -136,14 +136,14 @@
         if (i >= myvideo.length) {
             i = 0;
         }
-        videos.src = "video/" + myvideo[i];
+        videos.src = "../video/" + myvideo[i];
         updateCurrentVideoElement();
         logo.textContent = i+1 + "号" + "/" + (myvideo.length)+"号";
     }
 
     document.getElementById("random").onclick = function () {
         i = Math.floor(Math.random() * myvideo.length);
-        videos.src = "video/" + myvideo[i];
+        videos.src = "../video/" + myvideo[i];
         videos.play();
         updateCurrentVideoElement();
         logo.textContent = i+1 + "号" + "/" + (myvideo.length)+"号";
@@ -158,7 +158,7 @@
         if (input && !isNaN(input)) {
             i = parseInt(input) - 1;
             if (i >= 0 && i < myvideo.length) {
-                videos.src = "video/" + myvideo[i];
+                videos.src = "../video/" + myvideo[i];
                 videos.play();
                 updateCurrentVideoElement();
                 logo.textContent = i+1 + "号" + "/" + (myvideo.length)+"号";
