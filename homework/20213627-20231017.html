@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            margin: 20px;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 3px;
+            font-size: 14px;
+            overflow-x: auto; /* 自适应屏幕 */
+            white-space: pre-wrap; /* 内容换行 */
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>关于视频标签的学习2</h1>
+<div id="owner"><p><a href="video.html">个人视频模板（因视频篇幅过大仅上传了三个视频）</a></p></div>
+<h2>1.新增用到的语句</h2>
+<code><pre>
+1.setInterval(function, delay);
+其中，
+function 表示要执行的操作，可以是函数名或匿名函数。
+delay 表示每隔多少毫秒执行一次该操作。
+因此，可以将 setInterval() 理解为一个定时器，用来定时触发一个操作。
+在上述代码中，我们看到 setInterval() 的参数只传递了一个函数名或匿名函数，没有传递时间间隔参数（即 delay 参数）。
+这是因为调用 setInterval() 时，如果不指定时间间隔，则默认是每隔 1000 毫秒（即 1 秒）执行一次该函数。因此，上述代码实际上是在每隔 1 秒钟执行一次匿名函数。
+如果需要停止定时器，可以使用 clearInterval() 函数，语法如下：
+var intervalId = setInterval(function, delay);
+clearInterval(intervalId);
+其中，intervalId 表示 setInterval() 返回的 ID，可以通过该 ID 来清除定时器。
+总之，setInterval() 是 JavaScript 中非常有用的定时器函数，可以帮助我们实现各种与时间相关的功能。
+
+
+2.parseInt()
+JavaScript 中的一个全局函数，用于将一个字符串转换为整数。它的语法如下：
+parseInt(string, radix);
+其中，
+string 表示要被转换为整数的字符串。
+radix 表示数字的进制数，即字符串中数字的基数。如果不指定此参数，则默认采用十进制。
+parseInt() 的返回值是一个整数，表示转换后的结果。如果无法转换，则返回 NaN（Not a Number）。
+
+
+3.Math.random()  Math.floor()
+Math.random()是JavaScript中的一个方法，用于生成一个大于等于 0 小于 1 的伪随机浮点数。也就是说，返回的值是一个处于 0（包含）到 1（不包含）之间的数
+Math.random() * myvideo.length: 这一部分将随机数乘以 myvideo 数组的长度。假设 myvideo 是一个数组，myvideo.length 返回数组的元素个数，这个乘积的结果是一个大于等于 0 小于 myvideo.length 的浮点数。
+Math.floor(): 是 JavaScript 中的一个方法，用于将一个数向下取整，即去掉小数部分，只保留整数部分。在这段代码中，Math.floor() 函数将前面乘积的结果向下取整，得到一个大于等于 0 小于 myvideo.length 的整数。
+最终的结果是一个随机生成的索引值，用于随机访问 myvideo 数组中的元素。通过该索引值可以从数组中获取随机元素。
+</pre></code>
+<h2>2.新增加的功能函数</h2>
+<code><pre>
+1.显示视频进度的时间
+2.随机播放视频
+3.搜索视频
+4.调节视频进度
+</pre></code>
+<h2>3.功能的具体实现</h2>
+<code><pre>
+播放视频的具体实现:
+    1.在上一个代码块的基础上加入了一些基础的逻辑判断 例如如果用户输入的不是数字 是字符 我使用parseInt（）函数对这些字符进行类型转换
+      如果不满足数字形式的条件 则会被转化为NaN 通过if语句判断用户输入来提示用户 得到更好的交互体验
+    2.简单实现了视频进度的设置 会在一个只读文本框内生成现在视频播放的时间 通过计时器设置时间间隔来完成这个功能
+    3.实现了搜索视频的功能，将输入的内容进行逻辑判断，正确则实施跳转
+    4.实现了视频的进度调节，通过与视频的duration属性进行比较以及输入内容的判断 结合video的currentTime属性进行视频进度的调节
+</pre></code>
+
+</body>
+</html>

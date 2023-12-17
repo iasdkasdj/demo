@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        video {
+            max-width: 100%;
+            max-height: 100%;
+            border: green 4px solid;
+            box-shadow: 1px 2px 1px #000;
+            margin:0px;
+        }
+
+        #bb {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            color: red;
+            box-shadow: 1px 2px 1px #000;
+        }
+
+        #timeDisplay {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #logo {
+            position: absolute;
+            right: 0em;
+            background-color: red;
+            font-size: 3.1em;
+            padding: 10px 20px;
+            z-index: 1;
+            top: 1.05em;
+        }
+
+        #showtime {
+            position: absolute;
+            left: 0em;
+            background-color: blue;
+            font-size: 2em;
+            padding: 10px 20px;
+            z-index: 1;
+            top: 1.05em;
+
+        }
+        #buttons{
+            display: flex;
+            justify-content: space-between;
+
+        }
+    </style>
+</head>
+<body>
+<div id="showtime"></div>
+
+<div id="logo">
+
+</div>
+<video controls id="videos"></video>
+<div id="bb">
+    <p id="current-video"></p>
+    <label><input type="text" id="search-input" placeholder="输入视频编号">
+    </label>
+    <button id="search">搜索</button>
+    <label><input type="text" id="search1-input" placeholder="输入跳转秒数"></label>
+    <button id="search1">跳转</button>
+    <input type="text" placeholder="当前视频播放进度" id="timeDisplay" readonly>
+    <button id="play">play</button>
+    <button id="stop">stop</button>
+    <button id="next">next</button>
+    <button id="random">random</button>
+    <label for="volume"><img src="img/th.jpg" width="20" height="30" alt="volume image" title="音量调节"></label>
+    <input id="volume" type="range" min="0" max="1" step="0.01" value="0.5">
+    <div id="buttons"> </div>
+</div>
+
+<script>
+
+    //视频UI的全屏设置
+    var browserWidth = document.body.clientWidth;
+    videos.style.width = browserWidth + 'px';
+    var i = 0
+    var myvideo = ["v0201ag10000caikc13c77udap1dkdb0.mp4", "v02004a40000bproefir863oaub47slg.mp4", "v02004a40000bproicl7gl1h25fgjoeg.mp4"
+    ]
+    var logodom = document.getElementById("logo");
+    var videodom=document.getElementById("videos");
+    var volumedom=document.getElementById("volume");
+    var showtimeDom =document.getElementById("showtime");
+    var currentVideoElement = document.getElementById("current-video");
+    var buttonDoms=[];
+    for(let i=0;i<9;i++){
+        let buttonDom=document.createElement("input");
+        buttonDom.type='button';
+        buttonDom.value="跳转到第"+(i+1)+"时间段";
+        buttonDoms[i]=buttonDom;
+        document.getElementById("buttons").appendChild(buttonDoms[i]);
+    }
+    for(let i=0;i<9;i++){
+        buttonDoms[i].onclick=function () {
+            videodom.currentTime=(i+1)*videodom.duration/9;
+        }
+    }
+
+    document.getElementById("videos").src = "video/" + myvideo[0];//设置视频播放的url
+    // 监听视频时间更新事件
+    videodom.addEventListener("timeupdate", function() {
+        // 获取当前视频时间和总时间，并更新showtime元素的文本内容
+        var currentTime = Math.round(videodom.currentTime);
+        var duration = Math.round(videodom.duration);
+        showtimeDom.textContent = currentTime+"s" + "/" + duration+"s";
+    });
+    // 监听音量滑块的变化
+    volumedom.addEventListener('input', function() {
+        videodom.volume = this.value;
+    });
+    document.getElementById("play").onclick = function () {//定义与对象交互的函数 这里是一个播放函数
+        videos.play();
+        var input = document.getElementById("timeDisplay");
+        setInterval(function () {
+            input.value = "当前视频播放进度:" + Math.round(videos.currentTime).toString() + "秒";
+        }, 1000);
+    }
+    logo.textContent = i+1 + "号" + "/" + (myvideo.length)+"号";
+    document.getElementById("stop").onclick = function () {
+        videos.pause();
+    }
+
+    document.getElementById("next").onclick = function () {
+        i++;
+        if (i >= myvideo.length) {
+            i = 0;
+        }
+        videos.src = "video/" + myvideo[i];
+        updateCurrentVideoElement();
+        logo.textContent = i+1 + "号" + "/" + (myvideo.length)+"号";
+    }
+
+    document.getElementById("random").onclick = function () {
+        i = Math.floor(Math.random() * myvideo.length);
+        videos.src = "video/" + myvideo[i];
+        videos.play();
+        updateCurrentVideoElement();
+        logo.textContent = i+1 + "号" + "/" + (myvideo.length)+"号";
+    }
+
+    function updateCurrentVideoElement() {
+        currentVideoElement.textContent = "当前是第 " + (i + 1) + " 个视频";
+    }
+
+    document.getElementById("search").onclick = function () {
+        var input = document.getElementById("search-input").value;
+        if (input && !isNaN(input)) {
+            i = parseInt(input) - 1;
+            if (i >= 0 && i < myvideo.length) {
+                videos.src = "video/" + myvideo[i];
+                videos.play();
+                updateCurrentVideoElement();
+                logo.textContent = i+1 + "号" + "/" + (myvideo.length)+"号";
+            } else {
+                alert("当前视频编号不存在，请重新输入正确的编号");
+            }
+
+        } else if (isNaN(parseInt(input))) {
+            alert("输入的并不是数字 请重新输入");
+        }
+    }
+
+    document.getElementById("search1").onclick = function () {
+        var input = document.getElementById("search1-input");
+
+        if (isNaN(parseInt(input.value))) {
+            alert("输入格式有误 请输入数字");
+        }
+        if (input.value && !isNaN(input.value)) {
+            var time = parseFloat(input.value);
+            videos.currentTime = time;
+            videos.play();
+        }
+        if (input.value > videos.duration) {
+            alert("输入超出最大时长，已经为你返回0秒");
+            videos.currentTime = 0;
+        }}
+    // var input = document.getElementById("timeDisplay");
+    // setInterval(function () {
+    //     input.value = "当前视频播放进度:" + Math.round(videos.currentTime).toString() + "秒";
+    // }, 1000);
+
+
+
+
+
+    // document.onkeydown = function (e) {//键盘点击 显示在控制台之中
+    //     console.log("your type" + e.key);
+    //
+    // }
+
+
+
+    updateCurrentVideoElement();
+
+
+</script>
+</body>
+</html>
