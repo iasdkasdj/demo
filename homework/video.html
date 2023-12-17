@@ -75,7 +75,7 @@
     <button id="stop">stop</button>
     <button id="next">next</button>
     <button id="random">random</button>
-    <label for="volume"><img src="img/th.jpg" width="20" height="30" alt="volume image" title="音量调节"></label>
+    <label for="volume"><img src="../img/th.jpg" width="20" height="30" alt="volume image" title="音量调节"></label>
     <input id="volume" type="range" min="0" max="1" step="0.01" value="0.5">
     <div id="buttons"> </div>
 </div>
@@ -107,7 +107,7 @@
         }
     }
 
-    document.getElementById("videos").src = "video/" + myvideo[0];//设置视频播放的url
+    document.getElementById("videos").src = "../video/" + myvideo[0];//设置视频播放的url
     // 监听视频时间更新事件
     videodom.addEventListener("timeupdate", function() {
         // 获取当前视频时间和总时间，并更新showtime元素的文本内容
