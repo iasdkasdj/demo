@@ -1,7 +1,7 @@
 var dataSource = {
     author: {
         path: "images/",
-        picFiles:["ljh.jpg","zzx.jpg","lsz.jpg","zrj.jpg","ltp,jpg"],
+        picFiles:["ljh.jpg","zzx.jpg","lsz.jpg","zrj.jpg","ltp.jpg"],
         name:["李健宏老师","张梓鑫","赖盛桢","张荣军","李添鹏"]
     },
     mp3Files: {
